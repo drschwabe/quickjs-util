@@ -40,6 +40,8 @@ void initJs(JSRuntime* js, JSContext* jsContext) {
   std::string initScript = R"xxx(
     import * as os from 'os'
     globalThis.os = os     
+    import * as std from 'std'
+    globalThis.std = std               
     globalThis.log = console.log
   )xxx"; 
   auto jsResult = JS_Eval(jsContext, initScript.data(),
