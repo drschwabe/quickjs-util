@@ -29,6 +29,13 @@ void runJs(JSContext* jsContext, std::string script) {
   handleJSexception(jsResult, jsContext);
 }     
 
+JSValue returnJs(JSContext* jsContext, std::string script) {           
+  auto jsResult = JS_Eval(jsContext, script.data(), script.size(), 
+    "<input>", JS_EVAL_TYPE_GLOBAL);   
+  handleJSexception(jsResult, jsContext);
+  return jsResult; 
+} 
+
 void initJs(JSRuntime* js, JSContext* jsContext) {
   printf("hey\n"); 
 
